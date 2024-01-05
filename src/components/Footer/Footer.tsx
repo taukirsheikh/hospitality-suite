@@ -17,15 +17,15 @@ const Footer = () => {
                         <p>123 Road</p>
                         <div className='flex items-center py-4'>
                             <BsFillSendFill />
-                            <p className='ml-2'>codewithlari</p>
+                            <p className='ml-2'>Taukir Sheikh</p>
                         </div>
                         <div className='flex items-center'>
                             <BsTelephoneOutbound />
-                            <p className='ml-2'>000-000-00</p>
+                            <p className='ml-2'>+9779824703922</p>
                         </div>
                         <div className='flex items-center pt-4'>
                             <BiMessageDetail />
-                            <p className='ml-2'>codewithlari</p>
+                            <p className='ml-2'>Lahan</p>
                         </div>
                     </div>
 
