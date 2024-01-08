@@ -1,7 +1,12 @@
 'use client'
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ThemeContext from "@/context/ThemeContext";
-import { redirect } from "next/dist/server/api-utils";
+
+
+export const useThemeContext = ()=>{
+    const theme=useContext(ThemeContext)
+    return theme
+}
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const localStorageAvailable = typeof localStorage !== "undefined";
