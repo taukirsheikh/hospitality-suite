@@ -16,11 +16,11 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
     const [darkTheme, setDarkTheme] = useState<boolean>(themeFromStorage);
     const [renderComponent, setRenderComponent]=useState(false);
-    useEffect(() => {
-        setRenderComponent(true);
+    // useEffect(() => {
+    //     setRenderComponent(true);
         
-    }, []);
-    if (!renderComponent) return <></>;
+    // }, []);
+    // if (!renderComponent) return <></>;
 
     return (
         <ThemeContext.Provider value={{ darkTheme, setDarkTheme }
