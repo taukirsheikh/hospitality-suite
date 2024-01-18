@@ -1,9 +1,40 @@
 
+'use client'
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
+const defaultFormData = {
+    email: '',
+    name: '',
+    password: '',
+};
 const Auth = () => {
+    const [formData, setFormData] = useState(defaultFormData)
     const inputStyles =
-    'border border-gray-300 sm:text-sm text-black rounded-lg block w-full p-2.5 focus:outline-none';
+        'border border-gray-300 sm:text-sm text-black rounded-lg block w-full p-2.5 focus:outline-none';
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value })
+
+
+    }
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        try {
+            console.log(formData)
+        } catch (err) {
+            console.error(err)
+
+        } finally {
+            setFormData(defaultFormData)
+
+        }
+    }
+
+    const loginHandler = ()=>{
+        console.log('hi')
+    }
     return (
         <section className="container mx-auto">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8 w-80 md:w-[70%] mx-auto">
@@ -14,28 +45,28 @@ const Auth = () => {
                     <p>OR</p>
                     <span className='inline-flex items-center'>
                         <AiFillGithub
-                            //   onClick={loginHandler}
+                            onClick={loginHandler}
                             className='mr-3 text-4xl cursor-pointer text-black dark:text-white'
                         />{' '}
                         |
                         <FcGoogle
-                            //   onClick={loginHandler}
+                            onClick={loginHandler}
                             className='ml-3 text-4xl cursor-pointer'
                         />
                     </span>
 
                 </div>
                 <form className='space-y-4 md:space-y-6'
-                //  onSubmit={handleSubmit}
-                 >
+                    onSubmit={handleSubmit}
+                >
                     <input
                         type='email'
                         name='email'
                         placeholder='name@company.com'
                         required
                         className={inputStyles}
-                        // value={formData.email}
-                        // onChange={handleInputChange}
+                        value={formData.email}
+                        onChange={handleInputChange}
                     />
                     <input
                         type='text'
@@ -43,8 +74,8 @@ const Auth = () => {
                         placeholder='John Doe'
                         required
                         className={inputStyles}
-                        // value={formData.name}
-                        // onChange={handleInputChange}
+                        value={formData.name}
+                        onChange={handleInputChange}
                     />
                     <input
                         type='password'
@@ -53,8 +84,8 @@ const Auth = () => {
                         required
                         minLength={6}
                         className={inputStyles}
-                        // value={formData.password}
-                        // onChange={handleInputChange}
+                        value={formData.password}
+                        onChange={handleInputChange}
                     />
 
                     <button
@@ -64,15 +95,15 @@ const Auth = () => {
                         Sign Up
                     </button>
                 </form>
-<div className='w-full flex gap-5 '>
-    <p className=' my-auto text-center  '>Already have an account ?</p>
+                <div className='w-full flex gap-5 '>
+                    <p className=' my-auto text-center  '>Already have an account ?</p>
 
-                <button
-                //  onClick={loginHandler} 
-                className='  hover:bg-tertiary-dark bg-tertiary-light py-2.5 rounded-full w-[50%]'>
-                    login
-                </button>
-                     </div>
+                    <button
+                        onClick={loginHandler}
+                        className='  hover:bg-tertiary-dark bg-tertiary-light py-2.5 rounded-full w-[50%]'>
+                        login
+                    </button>
+                </div>
             </div>
         </section>
     )
